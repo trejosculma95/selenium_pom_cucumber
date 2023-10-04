@@ -1,8 +1,7 @@
 package pagesObjects;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import com.google.common.io.Files;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -10,7 +9,12 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 import java.util.List;
 
 public class BaseTestSuite {
@@ -66,6 +70,16 @@ public class BaseTestSuite {
 
     public static void tearDownBrowser() {
         driver.quit();
+    }
+
+    public static void getScreenShot(String nameTest) throws IOException {
+
+        DateFormat formatDate = new SimpleDateFormat("dd-MM-yy-HH-mm-ss-SS");
+        Date date = new Date();
+        String dateScreenShot = formatDate.format(date);
+
+        File f = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        Files.copy(f, new File("C://Users//jtrejos//IdeaProjects//project_pom_Cucumber//src//test//resources//screenShots//" + nameTest + "_" + dateScreenShot + ".jpg"));
     }
 
 }

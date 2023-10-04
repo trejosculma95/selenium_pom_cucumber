@@ -38,6 +38,6 @@ build/
 .DS_Store
 
 ##resources - Drivers, Reports and screenShots.##
-!**/src/test/resources/drivers/
-!**/src/test/resources/reports/
-!**/src/test/resources/screenShots/
+/src/test/resources/drivers/
+/src/test/resources/reports/
+/src/test/resources/screenShots/

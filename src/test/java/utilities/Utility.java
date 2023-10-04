@@ -23,13 +23,5 @@ public class Utility {
     protected ProductsPage productsPage= new ProductsPage();
     protected CartBagPage cartBagPage= new CartBagPage();
 
-   public void getScreenShot(String nameTest) throws IOException {
 
-        DateFormat formatDate = new SimpleDateFormat("dd-MM-yy-HH-mm-ss-SS");
-        Date date = new Date();
-        String dateScreenShot = formatDate.format(date);
-
-        File f = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        Files.copy(f, new File("C://Users//jtrejos//IdeaProjects//project_basic_pom-NG//src//test//resources//screenShots//" + nameTest + "_" + dateScreenShot + ".jpg"));
-    }
 }
